@@ -1,0 +1,25 @@
+@use "variables" as *;
+@use "mixins";
+
+.order-success {
+  @include mixins.flex(column);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+
+    &::before {
+      content: " ";
+      @include mixins.background('../../public/images/Subtract.png');
+      width: 140px;
+      height: 140px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 0.5rem;
+    }
+
+  &__close {
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,39 @@
+@use "variables" as *;
+@use "mixins";
+
+.form {
+  @include mixins.flex(column);
+  gap: 1.5rem;
+  border-radius: 3rem;
+
+  &__label {
+    flex-grow: 1;
+  }
+
+  &__input {
+    background: rgba(255,255,255,0.02);
+    color: $secondary;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 1.25rem;
+    padding: 0.9rem;
+    font-size: 1.4rem;
+    width: 100%;
+    box-sizing: border-box;
+    outline-color: $primaryLight;
+
+    &:focus {
+      outline-style: solid;
+      border-color: $primaryLight;
+      background: rgba($primary, 0.04);
+    }
+
+    &:invalid {
+      border-color: $error;
+      outline-color: $error;
+    }
+
+    &::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+  }
+}

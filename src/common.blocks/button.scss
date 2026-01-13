@@ -1,0 +1,33 @@
+@use "variables" as *;
+@use "mixins";
+
+.button {
+  @include mixins.button($primary, white, $hover);
+  border: 0;
+
+  &_alt {
+    // Inactive/neutral style: plain text, no hover effects
+    background: transparent;
+    border: 0;
+    color: $secondary;
+    box-shadow: none;
+    &:hover {
+      background: transparent;
+      color: $secondary;
+    }
+  }
+
+  &_alt-active {
+    @include mixins.button($secondary, $primary, $primaryLight);
+    // Use a darker background for the selected payment button; no border or hover change
+    background: $hover;
+    color: $secondary;
+    border: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+    &:hover {
+      // keep appearance on hover (no visual change)
+      background: $hover;
+      color: $secondary;
+    }
+  }
+}
